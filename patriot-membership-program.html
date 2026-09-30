@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<div style="background-color: #1e3d59; padding: 15px; text-align: center; font-family: Arial, sans-serif;">
+    <a href="usa-plumbing-homepage.html" style="color: #ffffff; margin: 0 15px; text-decoration: none; font-weight: bold;">main</a>
+    <a href="commercial-plumbing.html" style="color: #ffffff; margin: 0 15px; text-decoration: none; font-weight: bold;">commercial_plumbing</a>
+    <a href="patriot-membership-program.html" style="color: #ffffff; margin: 0 15px; text-decoration: none; font-weight: bold;">patriot_membership_programme</a>
+    <a href="contact.html" style="color: #ffffff; margin: 0 15px; text-decoration: none; font-weight: bold;">contacts</a>
+</div>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Patriot Membership Program | USA Plumbing II Inc</title>
+<meta name="description" content="Join the Patriot Membership Program for discounted rates, priority scheduling, and an annual plumbing check-up. Call 843-555-0198.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Tailwind (CDN is fine for a prototype; for production compile Tailwind and drop this script) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          navy: { DEFAULT: '#14305C', deep: '#0C1F3D' },
+          patriot: { DEFAULT: '#C62828', dark: '#A81E1E' },
+          tide: '#E8F0F8',
+          ink: '#1B2433'
+        },
+        fontFamily: {
+          display: ['"Bricolage Grotesque"', 'system-ui', 'sans-serif'],
+          body: ['Figtree', 'system-ui', 'sans-serif']
+        }
+      }
+    }
+  }
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: Figtree, system-ui, sans-serif; color: #1B2433; }
+  h1, h2, h3, .font-display { font-family: "Bricolage Grotesque", system-ui, sans-serif; }
+  :focus-visible { outline: 3px solid #F5B301; outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+  /* keep content clear of the mobile call bar */
+  @media (max-width: 767px) { body { padding-bottom: 72px; } }
+
+  /* FAQ accordion: hide native marker (was showing double arrows) + smooth expand/collapse */
+  #faq details > summary { list-style: none; }
+  #faq details > summary::-webkit-details-marker { display: none; }
+  #faq details { transition: height 0.28s ease; }
+
+  /* Service cards: subtle fade/rise-in as they enter view */
+  #services article { opacity: 0; transform: translateY(14px); transition: opacity .45s ease, transform .45s ease, border-color .3s ease, box-shadow .3s ease, translate .3s ease; }
+  #services article.is-visible { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) {
+    #services article { opacity: 1; transform: none; }
+  }
+</style>
+
+<!-- Calendly (powers every "Schedule Online" button as a popup) -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<script>
+  // Replace with your real Calendly event link
+  const CALENDLY_URL = "https://calendly.com/veloceai";
+  function openSchedule(e) {
+    if (e) e.preventDefault();
+    if (window.Calendly) {
+      Calendly.initPopupWidget({ url: CALENDLY_URL });
+    } else {
+      window.open(CALENDLY_URL, "_blank");
+    }
+  }
+</script>
+
+<!-- SEO: local business structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Plumber",
+  "name": "USA Plumbing II Inc",
+  "telephone": "+1-843-555-0198",
+  "email": "demo@veloceai-test.io",
+  "areaServed": ["Horry County, SC", "Brunswick County, NC"],
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+    "opens": "08:00", "closes": "16:30"
+  }]
+}
+</script>
+</head>
+
+<body class="bg-white antialiased">
+
+<div class="bg-black px-4 py-2 text-center text-sm font-semibold text-white">
+  ⚠ Test site for the Veloce AI assistant demo — not a real business. Phone numbers and email shown are randomized, not live.
+</div>
+
+<!-- Icon sprite -->
+<svg xmlns="http://www.w3.org/2000/svg" class="hidden" aria-hidden="true">
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+  <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></symbol>
+  <symbol id="i-thermo" viewBox="0 0 24 24"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/></symbol>
+  <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+  <symbol id="i-flame" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></symbol>
+  <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+</svg>
+
+<!-- =========================================================
+     HEADER
+     ========================================================= -->
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-200">
+  <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 lg:px-8">
+
+    <a href="/" class="flex items-center gap-3" aria-label="USA Plumbing II Inc home">
+      <!-- Replace with your real logo file -->
+      <img src="/logo.png" alt="" class="h-10 w-auto" onerror="this.style.display='none'">
+      <span class="font-display text-lg font-extrabold leading-tight text-navy">USA Plumbing <span class="text-patriot">II</span> Inc</span>
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="hidden items-center gap-6 text-[15px] font-semibold text-ink lg:flex" aria-label="Main">
+      <div class="group relative">
+        <button class="flex items-center gap-1 py-2 hover:text-patriot" aria-haspopup="true">Services
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="invisible absolute left-0 top-full w-60 rounded-lg border border-slate-200 bg-white p-2 opacity-0 shadow-lg transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+          <a class="block rounded px-3 py-2 hover:bg-tide" href="/water-heaters">Water Heaters</a>
+          <a class="block rounded px-3 py-2 hover:bg-tide" href="/plumbing-drains">Plumbing &amp; Drains</a>
+          <a class="block rounded px-3 py-2 hover:bg-tide" href="/slab-leaks">Slab Leaks</a>
+          <a class="block rounded px-3 py-2 hover:bg-tide" href="/gas-services">Gas Services</a>
+          <a class="block rounded px-3 py-2 hover:bg-tide" href="/commercial-plumbing">Commercial Plumbing</a>
+        </div>
+      </div>
+      <a class="hover:text-patriot" href="/patriot-membership-program">Patriot Membership</a>
+      <a class="hover:text-patriot" href="#about">About</a>
+      <a class="hover:text-patriot" href="#reviews">Reviews</a>
+      <a class="hover:text-patriot" href="#faq">FAQ</a>
+      <a class="hover:text-patriot" href="/contact">Contact</a>
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <a href="#" onclick="openSchedule(event)" class="hidden rounded-lg border-2 border-navy px-4 py-2.5 text-sm font-bold text-navy transition hover:bg-navy hover:text-white sm:inline-block">Schedule Online</a>
+      <a href="tel:+18435550198" class="flex items-center gap-2 rounded-lg bg-patriot px-4 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-patriot-dark">
+        <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-phone"/></svg>
+        <span><span class="hidden sm:inline">Call now </span>843-555-0198</span>
+      </a>
+      <button id="menuBtn" class="rounded-lg p-2 text-navy lg:hidden" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><use href="#i-menu"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile nav -->
+  <nav id="mobileNav" class="hidden border-t border-slate-200 bg-white px-4 py-3 lg:hidden" aria-label="Mobile">
+    <a class="block py-2.5 font-semibold" href="/water-heaters">Water Heaters</a>
+    <a class="block py-2.5 font-semibold" href="/plumbing-drains">Plumbing &amp; Drains</a>
+    <a class="block py-2.5 font-semibold" href="/slab-leaks">Slab Leaks</a>
+    <a class="block py-2.5 font-semibold" href="/gas-services">Gas Services</a>
+    <a class="block py-2.5 font-semibold" href="/commercial-plumbing">Commercial Plumbing</a>
+    <a class="block py-2.5 font-semibold" href="/patriot-membership-program">Patriot Membership</a>
+    <a class="block py-2.5 font-semibold" href="#reviews">Reviews</a>
+    <a class="block py-2.5 font-semibold" href="#faq">FAQ</a>
+    <a class="block py-2.5 font-semibold" href="/contact">Contact</a>
+    <a class="mt-2 block rounded-lg border-2 border-navy py-2.5 text-center font-bold text-navy" href="#" onclick="openSchedule(event)">Schedule Online</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="mx-auto max-w-4xl px-4 py-14 lg:px-8 lg:py-20">
+  <p class="font-bold uppercase tracking-wide text-patriot">Membership</p>
+  <h1 class="mt-2 text-3xl font-extrabold tracking-tight text-navy sm:text-4xl">Patriot Membership Program</h1>
+  <p class="mt-4 text-lg text-slate-600">Join our membership program for ongoing savings and priority care on your plumbing, with a check-up each year to catch small issues before they become expensive ones.</p>
+
+  <div class="mt-6 flex flex-wrap gap-3">
+    <a href="#" onclick="openSchedule(event)" class="rounded-xl bg-patriot px-6 py-3.5 font-bold text-white transition hover:bg-patriot-dark">Schedule Online</a>
+    <a href="tel:+18435550198" class="rounded-xl border-2 border-navy px-6 py-3.5 font-bold text-navy transition hover:bg-navy hover:text-white">Call 843-555-0198</a>
+  </div>
+
+  <h2 class="mt-12 text-2xl font-extrabold text-navy">What members get</h2>
+  <div class="mt-6 grid gap-4 sm:grid-cols-3">
+    <div class="rounded-2xl bg-navy p-5 text-white">
+      <svg class="h-6 w-6 text-[#F5B301]" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-shield"/></svg>
+      <h3 class="mt-3 font-bold">Discounted rates</h3>
+      <p class="mt-2 text-sm text-slate-200">Members pay a lower rate on service calls and repairs.</p>
+    </div>
+    <div class="rounded-2xl bg-navy p-5 text-white">
+      <svg class="h-6 w-6 text-[#F5B301]" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-clock"/></svg>
+      <h3 class="mt-3 font-bold">Priority scheduling</h3>
+      <p class="mt-2 text-sm text-slate-200">Members get scheduled ahead of non-members when things get busy.</p>
+    </div>
+    <div class="rounded-2xl bg-navy p-5 text-white">
+      <svg class="h-6 w-6 text-[#F5B301]" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-check"/></svg>
+      <h3 class="mt-3 font-bold">Annual check-up</h3>
+      <p class="mt-2 text-sm text-slate-200">A yearly plumbing check-up to catch small problems early.</p>
+    </div>
+  </div>
+
+  <h2 class="mt-12 text-2xl font-extrabold text-navy">How it works</h2>
+  <ol class="mt-6 space-y-4">
+    <li class="flex gap-4"><span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-tide font-bold text-navy">1</span><p class="text-slate-700">Sign up online or over the phone &mdash; no appointment required to join.</p></li>
+    <li class="flex gap-4"><span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-tide font-bold text-navy">2</span><p class="text-slate-700">We schedule your first annual check-up at a time that works for you.</p></li>
+    <li class="flex gap-4"><span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-tide font-bold text-navy">3</span><p class="text-slate-700">From there, your membership rate and priority scheduling apply to every visit.</p></li>
+  </ol>
+
+  <div class="mt-12 rounded-2xl bg-tide p-6 text-center">
+    <h2 class="text-xl font-bold text-navy">Ready to join?</h2>
+    <p class="mt-2 text-slate-700">Call us or schedule online and we'll walk you through it.</p>
+    <a href="#" onclick="openSchedule(event)" class="mt-4 inline-block rounded-xl bg-patriot px-6 py-3 font-bold text-white transition hover:bg-patriot-dark">Schedule Online</a>
+  </div>
+</section>
+
+</main>
+
+     ========================================================= -->
+<footer class="bg-navy-deep text-slate-300">
+  <div class="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:grid-cols-2 lg:grid-cols-4 lg:px-8">
+
+    <div>
+      <p class="font-display text-xl font-extrabold text-white">USA Plumbing <span class="text-red-400">II</span> Inc</p>
+      <p class="mt-3 text-sm leading-relaxed">Family-owned plumbing company serving the Myrtle Beach area for over 20 years.</p>
+    </div>
+
+    <div>
+      <h3 class="font-bold text-white">Quick links</h3>
+      <ul class="mt-3 space-y-2 text-sm">
+        <li><a class="hover:text-white hover:underline" href="/">Home</a></li>
+        <li><a class="hover:text-white hover:underline" href="/commercial-plumbing">Commercial Plumbing</a></li>
+        <li><a class="hover:text-white hover:underline" href="/water-heaters">Water Heaters</a></li>
+        <li><a class="hover:text-white hover:underline" href="/plumbing-drains">Plumbing &amp; Drains</a></li>
+        <li><a class="hover:text-white hover:underline" href="/slab-leaks">Slab Leaks</a></li>
+        <li><a class="hover:text-white hover:underline" href="/gas-services">Gas Services</a></li>
+        <li><a class="hover:text-white hover:underline" href="/patriot-membership-program">Patriot Membership Program</a></li>
+        <li><a class="hover:text-white hover:underline" href="#reviews">Reviews</a></li>
+        <li><a class="hover:text-white hover:underline" href="#faq">FAQ</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="font-bold text-white">Contact &amp; service areas</h3>
+      <ul class="mt-3 space-y-2 text-sm">
+        <li><a class="hover:text-white hover:underline" href="tel:+18435550198">843-555-0198</a></li>
+        <li><a class="hover:text-white hover:underline" href="tel:+19105550134">910-555-0134</a></li>
+        <li><a class="break-all hover:text-white hover:underline" href="mailto:demo@veloceai-test.io">demo@veloceai-test.io</a></li>
+        <li class="pt-2">Horry County, SC<br>Brunswick County, NC</li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="font-bold text-white">Working hours</h3>
+      <dl class="mt-3 space-y-2 text-sm">
+        <div class="flex justify-between gap-4"><dt>Monday&ndash;Saturday</dt><dd class="font-semibold text-white">8:00 AM&ndash;4:30 PM</dd></div>
+        <div class="flex justify-between gap-4"><dt>Sunday</dt><dd>Closed</dd></div>
+      </dl>
+      <a href="#" onclick="openSchedule(event)" class="mt-5 inline-block rounded-lg bg-white px-5 py-2.5 text-sm font-bold text-navy transition hover:bg-slate-100">Schedule Online</a>
+    </div>
+  </div>
+
+  <div class="border-t border-white/10">
+    <div class="mx-auto flex max-w-7xl flex-col justify-between gap-2 px-4 py-5 text-xs text-slate-400 sm:flex-row lg:px-8">
+      <p>&copy; <span id="yr">2026</span> USA Plumbing II Inc. All rights reserved.</p>
+      <a class="hover:text-white hover:underline" href="/privacy-policy">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Mobile sticky call bar: the single most important mobile conversion element -->
+<div class="fixed inset-x-0 bottom-0 z-50 grid grid-cols-2 gap-2 border-t border-slate-200 bg-white p-2.5 shadow-[0_-4px_12px_rgba(0,0,0,0.08)] md:hidden">
+  <a href="tel:+18435550198" class="flex items-center justify-center gap-2 rounded-lg bg-patriot py-3 font-bold text-white">
+    <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-phone"/></svg>Call now
+  </a>
+  <a href="#request" class="flex items-center justify-center rounded-lg border-2 border-navy py-3 font-bold text-navy">Request service</a>
+</div>
+
+<script>
+  // Mobile menu toggle
+  const btn = document.getElementById('menuBtn');
+  const nav = document.getElementById('mobileNav');
+  btn.addEventListener('click', () => {
+    const open = nav.classList.toggle('hidden') === false;
+    btn.setAttribute('aria-expanded', open);
+  });
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Service cards: fade/rise into view as the user scrolls to them
+  (function revealServiceCards() {
+    const cards = document.querySelectorAll('#services article');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!cards.length) return;
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      cards.forEach((card) => card.classList.add('is-visible'));
+      return;
+    }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    cards.forEach((card, i) => {
+      card.style.transitionDelay = Math.min(i * 60, 240) + 'ms';
+      io.observe(card);
+    });
+  })();
+
+  // FAQ accordion: smooth expand/collapse instead of the browser's instant snap
+  (function smoothFaqAccordion() {
+    const items = document.querySelectorAll('#faq details');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion) return; // keep the native, instant <details> behavior
+
+    items.forEach((details) => {
+      const summary = details.querySelector('summary');
+      if (!summary) return;
+
+      summary.addEventListener('click', (e) => {
+        if (details.classList.contains('is-animating')) { e.preventDefault(); return; }
+        e.preventDefault();
+
+        const style = getComputedStyle(details);
+        const padY = parseFloat(style.paddingTop) + parseFloat(style.paddingBottom);
+        const closedHeight = summary.offsetHeight + padY;
+
+        details.classList.add('is-animating');
+        details.style.overflow = 'hidden';
+
+        const finish = () => {
+          details.style.height = '';
+          details.style.overflow = '';
+          details.classList.remove('is-animating');
+        };
+
+        if (details.open) {
+          // Collapse
+          details.style.height = details.offsetHeight + 'px';
+          requestAnimationFrame(() => { details.style.height = closedHeight + 'px'; });
+          details.addEventListener('transitionend', function onEnd(ev) {
+            if (ev.propertyName !== 'height') return;
+            details.removeEventListener('transitionend', onEnd);
+            details.open = false;
+            finish();
+          });
+        } else {
+          // Expand
+          details.style.height = closedHeight + 'px';
+          details.open = true;
+          const fullHeight = details.scrollHeight;
+          requestAnimationFrame(() => { details.style.height = fullHeight + 'px'; });
+          details.addEventListener('transitionend', function onEnd(ev) {
+            if (ev.propertyName !== 'height') return;
+            details.removeEventListener('transitionend', onEnd);
+            finish();
+          });
+        }
+      });
+    });
+  })();
+</script>
+<script type="text/javascript">
+  (function(d, t) {
+      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+      v.onload = function() {
+        window.voiceflow.chat.load({
+          verify: { projectID: '6ab7b365fc4600f1f7dbd26d' },
+          url: 'https://general-runtime.voiceflow.com',
+          voice: {
+            url: "https://runtime-api.voiceflow.com"
+          }
+        });
+      }
+      v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+  })(document, 'script');
+</script>
+</body>
+</html>
