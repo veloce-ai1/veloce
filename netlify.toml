@@ -1,0 +1,27 @@
+# Static site: the HTML files live in the repository root, no build step.
+[build]
+  publish = "."
+  command = ""
+
+# Service pages linked from the navigation don't exist yet.
+# Send visitors to the services section on the homepage until they're created
+# (302 = temporary, remove each rule once the real page is added).
+[[redirects]]
+  from = "/water-heaters"
+  to = "/#services"
+  status = 302
+
+[[redirects]]
+  from = "/slab-leaks"
+  to = "/#services"
+  status = 302
+
+[[redirects]]
+  from = "/plumbing-drains"
+  to = "/#services"
+  status = 302
+
+[[redirects]]
+  from = "/gas-services"
+  to = "/#services"
+  status = 302
